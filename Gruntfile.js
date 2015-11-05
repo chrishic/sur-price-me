@@ -7,37 +7,17 @@
 module.exports = function(grunt) {
 
     grunt.initConfig({
-
         jshint: {
+            options: {
+                jshintrc: true
+            },
             files: [
                 'Gruntfile.js',
                 'server/*.js',
                 'server/lib/**/*.js',
                 'server/app/controllers/**/*.js'
-            ],
-            options: {
-                // options here to override JSHint defaults
-                "bitwise": true,
-                "curly": true,
-                "eqeqeq": true,
-                "forin": true,
-                "immed": true,
-                "loopfunc": true,
-                "newcap": true,
-                "noarg": true,
-                "noempty": true,
-                "nonew": true,
-                "onecase": true,
-                "trailing": true,
-                "white": false,
-                "strict": false,
-                "sub": true,
-                "node": true,
-                "undef": true,
-                "unused": true
-            }
+            ]
         }
-
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
