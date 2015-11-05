@@ -1,6 +1,6 @@
 # To do list:
 
-* Don't return 404's if no results returned from successful database call; instead return response indicating 0 results
+* ~~Don't return 404's if no results returned from successful database call; instead return response indicating 0 results~~
 * Add unit tests
 * Run under load with JMeter to measure performance
 * Config flag to allow 'city' query parameter without requiring 'item' query parameter

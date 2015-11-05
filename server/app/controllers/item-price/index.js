@@ -44,11 +44,8 @@ var getPriceRecommendation = function(req, res, next) {
             return next(err);
         }
 
-        if (!results || typeof results !== 'object' ||
-            typeof results.rowCount !== 'number' ||
-            results.rowCount === 0 ||
-            !Array.isArray(results.rows) || results.rows.length === 0) {
-            return next(new ServiceError.NotFound(req.url));
+        if (!results || typeof results !== 'object' || !Array.isArray(results.rows)) {
+            return next(new ServiceError.ServerFailure('Unexpected response from database server.'));
         }
 
         //  Calculate total count of item prices
@@ -57,7 +54,7 @@ var getPriceRecommendation = function(req, res, next) {
         var totalCount = _.reduce(counts, function(memo, num) { return memo + num; }, 0);
 
         //  Price suggestion is first row of results.
-        var priceSuggestion = results.rows[0].list_price;
+        var priceSuggestion = results.rows.length > 0 ? results.rows[0].list_price : 0;
 
         var status = 200;
 
@@ -90,6 +87,8 @@ var getPriceRecommendation = function(req, res, next) {
 /////////////////////////////////////////////
 
 var getItemPrices = function(item, city, callback) {
+
+    assert(callback && typeof callback === 'function');
 
     var values = [];
     var whereClause = '';
