@@ -1,6 +1,8 @@
 app:
     hostname: localhost
     port: 80
+    item_price_service:
+        allow_city_only: true
 
 postgres:
     hostname: hostname

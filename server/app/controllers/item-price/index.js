@@ -34,8 +34,12 @@ var getPriceRecommendation = function(req, res, next) {
     //  Check for 'city' query parameter
     var city = ServiceUtils.getQueryValue(req.query, 'city');
 
-    //  At least one of ['item', 'city'] must be specified
-    if (!item && !city) {
+    //  Do we allow 'city' only requests? (default is yes - it must be specifically disabled)
+    //  [Note: 'item' only requests are always permissable.]
+    var allowCityOnly = (CONF.app.item_price_service.allow_city_only !== false);
+
+    //  Are the required parameters specified?
+    if (!item && !city || (!allowCityOnly && !item)) {
         return next(new ServiceError.NotFound(req.url));
     }
 
