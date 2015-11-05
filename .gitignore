@@ -1,0 +1,13 @@
+# Mac OS misc
+.DS_Store
+
+# node.js package management
+node_modules/
+
+# 'config' files
+runtime.json
+chrishic.yaml
+
+# Log files
+logs/
+*.log
