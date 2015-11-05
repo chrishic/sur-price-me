@@ -6,8 +6,11 @@ node_modules/
 
 # 'config' files
 runtime.json
-chrishic.yaml
 
 # Log files
 logs/
 *.log
+
+# Personal dev environment files
+chrishic.yaml
+chrishic_start.sh

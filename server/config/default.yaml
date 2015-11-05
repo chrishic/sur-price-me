@@ -1,0 +1,16 @@
+app:
+    hostname: localhost
+    port: 80
+    log_filename: sur-price-me-app.log
+    log_level: debug
+
+postgres:
+    hostname: hostname
+    port: 5432
+    user: username
+    password: password
+    db_name: database_name
+
+email:
+    sender: "Sur-Price-Me Monitor <email>"
+    alert_address: "Sur-Price-Me Alerts <email>"
