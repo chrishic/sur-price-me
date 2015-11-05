@@ -10,6 +10,7 @@ var util = require('util'),
     http = require('http'),
     CONF = require('config'),
     express = require('express'),
+    express_log = require('./lib/express-log'),
     pkg = require('../package.json'),
     ServiceError = require('./lib/errors'),
     ServiceUtils = require('./lib/utils');
@@ -61,6 +62,9 @@ var createApp = function() {
 
     //  Each request gets a custom 'service' object attached to Express `req` object
     app.use(function(req, res, next) { req.service = {}; next(); });
+
+    //  Hook per request logging middleware
+    app.use(express_log.logRequest);
 
     //  Configure environments
     if (process.env.NODE_ENV === 'development') {

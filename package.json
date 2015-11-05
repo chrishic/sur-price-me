@@ -17,6 +17,7 @@
         "config": "0.4.36",
         "js-yaml": "3.0.2",
         "express": "4.9.5",
+        "on-headers": "0.0.0",
         "pg": "4.4.3",
         "underscore": "1.8.3"
     },

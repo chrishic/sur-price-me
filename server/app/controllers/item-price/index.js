@@ -73,7 +73,7 @@ var getPriceRecommendation = function(req, res, next) {
         };
 
         //  Send output to stdout for logging
-        console.log(JSON.stringify(responseObject));
+        console.log('debug: ' + JSON.stringify(responseObject, null, 2));
 
         //  output result to client
         res.format({
