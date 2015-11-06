@@ -16,5 +16,16 @@
     "sub": true,
     "node": true,
     "undef": true,
-    "unused": true
+    "unused": true,
+    "predef" : [
+        "after",
+        "afterEach",
+        "afterAll",
+        "before",
+        "beforeEach",
+        "beforeAll",
+        "context",
+        "describe",
+        "it"
+    ]
 }
