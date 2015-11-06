@@ -39,19 +39,6 @@ var installUncaughtHandler = function() {
 
 };
 
-var configurePg = function() {
-
-    var pg = require('pg');
-
-    // By default PostgreSQL returns data as strings along with an OID that identifies
-    // its type.  We're setting the parser to convert OID 20 (int8) into a javascript
-    // integer.
-    pg.types.setTypeParser(20, function(val) {
-        return val === null ? null : parseInt(val, 10);
-    });
-
-};
-
 var createApp = function() {
 
     //  Create our express app
@@ -167,9 +154,6 @@ var startServer = function(app) {
 
     //  Install handler for uncaught exceptions
     installUncaughtHandler();
-
-    //  Configure postgres driver
-    configurePg();
 
     //  Now create our Express app and configure it
     var app = createApp();

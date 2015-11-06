@@ -9,8 +9,8 @@
 var assert = require('assert'),
     util = require('util'),
     CONF = require('config'),
-    pg = require('pg'),
     _ = require('underscore'),
+    pg = require('../../../lib/pg'),
     ServiceError = require('../../../lib/errors'),
     ServiceUtils = require('../../../lib/utils');
 
@@ -121,43 +121,7 @@ var getItemPrices = function(item, city, callback) {
     sqlQueryStr += whereClause;
     sqlQueryStr += 'GROUP BY list_price ORDER BY count(*) DESC, list_price DESC';
 
-    doQuery(sqlQueryStr, values, callback);
-
-};
-
-var doQuery = function(sqlQueryStr, values, callback) {
-
-    assert(sqlQueryStr && typeof sqlQueryStr === 'string');
-    assert(values && Array.isArray(values));
-    assert(callback && typeof callback === 'function');
-
-    //  Build connection string
-    var connectionStr = util.format('postgres://%s:%s@%s:%s/%s',
-        CONF.postgres.user, CONF.postgres.password, CONF.postgres.hostname, CONF.postgres.port, CONF.postgres.db_name);
-
-    //  Connect to database
-    pg.connect(connectionStr, function(err, client, done) {
-
-        var resultCallback = function(err, results) {
-            if (client) {
-                done(client);
-            }
-
-            if (err) {
-                return callback(err);
-            }
-
-            callback(null, results);
-        };
-
-        if (err) {
-            return resultCallback(err);
-        }
-
-        //  Submit the query
-        client.query(sqlQueryStr, values, resultCallback);
-
-    });
+    pg.doQuery(sqlQueryStr, values, callback);
 
 };
 
