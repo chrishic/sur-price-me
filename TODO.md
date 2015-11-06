@@ -3,7 +3,7 @@
 * ~~Don't return 404's if no results returned from successful database call; instead return response indicating 0 results~~
 * ~~Config flag to allow 'city' query parameter without requiring 'item' query parameter~~
 * ~~Better logging and profiling~~
-* Add unit tests
+* ~~Add unit tests~~
 * Run under load with JMeter to measure performance
 * Consider installing/utilizing `pg-native` module - test to see what (if any) performance gain we get
 * Run under Ubuntu
