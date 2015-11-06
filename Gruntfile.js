@@ -15,7 +15,8 @@ module.exports = function(grunt) {
                 'Gruntfile.js',
                 'server/*.js',
                 'server/lib/**/*.js',
-                'server/app/controllers/**/*.js'
+                'server/app/**/*.js',
+                'server/test/**/*.js'
             ]
         }
     });
