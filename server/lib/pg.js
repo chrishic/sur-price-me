@@ -69,6 +69,16 @@ var doQuery = function(sqlQueryStr, values, callback) {
         return val === null ? null : parseInt(val, 10);
     });
 
+    //  Configure pool size (if specified in configuration)
+    var poolSize = CONF.postgres.pool_size;
+    if (poolSize && typeof poolSize === 'string') {
+        poolSize = parseInt(poolSize, 10) || 0;
+    }
+
+    if (typeof poolSize === 'number' && poolSize > 0) {
+        pg.defaults.poolSize = poolSize;
+    }
+
     //  Build connection string
     connectionStr = util.format('postgres://%s:%s@%s:%s/%s',
         CONF.postgres.user, CONF.postgres.password, CONF.postgres.hostname, CONF.postgres.port, CONF.postgres.db_name);

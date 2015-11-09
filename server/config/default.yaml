@@ -11,3 +11,4 @@ postgres:
     user: username
     password: password
     db_name: database_name
+    pool_size: 25
