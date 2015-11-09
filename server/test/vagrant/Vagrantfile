@@ -1,0 +1,22 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+ENV['VAGRANT_DEFAULT_PROVIDER'] = 'virtualbox'
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.define "surpriceme" do |surpriceme|
+    surpriceme.vm.hostname = "surpriceme"
+    surpriceme.vm.box = "ubuntu/trusty64"
+    surpriceme.vm.network "forwarded_port", guest: 80, host: 3000
+    surpriceme.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+      vb.cpus = "1"
+    end
+  end
+end
+
+
+Vagrant.configure("2") do |config|
+
+end
