@@ -11,6 +11,9 @@ runtime.json
 logs/
 *.log
 
+# Vagrant
+.vagrant
+
 # Personal dev environment files
 chrishic.yaml
 chrishic_start.sh
