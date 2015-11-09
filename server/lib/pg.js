@@ -34,7 +34,7 @@ var doQuery = function(sqlQueryStr, values, callback) {
 
         var resultCallback = function(err, results) {
             if (client) {
-                done(client);
+                done();
             }
 
             if (err) {
