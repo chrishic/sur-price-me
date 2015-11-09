@@ -6,6 +6,6 @@
 * ~~Add unit tests~~
 * ~~Run under load with JMeter to measure performance~~
 * ~~Run under Ubuntu~~
-* Consider installing/utilizing `pg-native` module - test to see what (if any) performance gain we get
+* ~~Install/use `pg-native` module - test to see what (if any) performance gain we get~~
 * Create branch where mode is calculated on server (instead of during db call) - do this to compare running performance
 * Think about where we might be able to employ caching

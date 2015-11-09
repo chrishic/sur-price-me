@@ -9,7 +9,7 @@
 var assert = require('assert'),
     util = require('util'),
     CONF = require('config'),
-    pg = require('pg');
+    pg = require('pg').native;
 
 
 /////////////////////////////////////////////
