@@ -4,8 +4,8 @@
 * ~~Config flag to allow 'city' query parameter without requiring 'item' query parameter~~
 * ~~Better logging and profiling~~
 * ~~Add unit tests~~
-* Run under load with JMeter to measure performance
+* ~~Run under load with JMeter to measure performance~~
+* ~~Run under Ubuntu~~
 * Consider installing/utilizing `pg-native` module - test to see what (if any) performance gain we get
-* Run under Ubuntu
 * Create branch where mode is calculated on server (instead of during db call) - do this to compare running performance
 * Think about where we might be able to employ caching
